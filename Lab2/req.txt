@@ -1,0 +1,7 @@
+Django
+psycopg2
+psycopg
+Pillow
+minio==7.2.16
+django-minio-backend
+Faker
