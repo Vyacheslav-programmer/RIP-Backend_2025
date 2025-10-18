@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container forecast-page">
+        <h3  class="text-center">Черновой прогноз нагрузки</h3>
+        <div class="form-group">
+            <label class="form-label">Стоимость</label>
+            <input placeholder="Не рассчитано" disabled type="text" class="form-control" style="width: 250px">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Кол-во дней аренды</label>
+            {% if forecast.description %}
+                <input disabled type="text" class="form-control" value="{{ forecast.days }}">
+            {% else %}
+                <input disabled type="text" class="form-control" style="width: 250px" placeholder="Введите кол-во дней аренды">
+            {% endif %}
+        </div>
+        {% if forecast.get_tariffs|length > 0 %}
+            <h4 class="text-center">Тарифы</h4>
+            <div class="cards-wrapper d-flex flex-column">
+                {% for tariff in forecast.get_tariffs %}
+                    <div class="card w-100 mb5">
+                        <div class="row g-0 align-items-center px-3">
+                            <div class="col-md-3 justify-content-center d-flex">
+                                <a href="/tariffs/{{ tariff.id }}/">
+                                    <img src="{{ tariff.image.url }}" alt=""/>
+                                </a>
+                            </div>
+                            <div class="col-md-3 align-items-center d-flex flex-column">
+                                <p class="card-text text-muted">Название</p>
+                                <h5 class="card-title">{{ tariff.name }}</h5>
+                            </div>
+                            <div class="col-md-3 align-items-center d-flex flex-column">
+                                <p class="card-text text-muted">Цена</p>
+                                <p class="card-text">{{ tariff.price }} руб.</p>
+                            </div>
+                            <div class="col-md-3 justify-content-center d-flex">
+                                <div class="form-group">
+                                    <label class="form-label">Количество</label>
+                                    <input disabled type="text" class="form-control" style="width: 150px"
+                                           value="{{ tariff.count }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+             <h4 class="text-center">Тарифы еще не добавлены</h4>
+        {% endif %}
+        <form method="post" action="{% url 'delete_forecast' forecast.id %}" class="d-flex justify-content-center">
+            {% csrf_token %}
+            <button class="btn btn-danger delete-draft-forecast-btn" type="submit" style="width: 125px">
+                Удалить
+            </button>
+        </form>
+    </main>
+{% endblock content %}
