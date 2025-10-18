@@ -27,3 +27,14 @@
 ```bash
 cd Lab1
 docker-compose up --build
+
+## Контрольные вопросы:
+MVT архитектура
+
+Компоненты MVC в Django
+
+Шаблонизация
+
+HTTP и модель OSI
+
+Веб-технологии (HTML, CSS)

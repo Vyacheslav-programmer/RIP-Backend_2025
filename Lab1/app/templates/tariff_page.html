@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container tariff-page">
+        <div class="row">
+            <div class="col-6">
+                <img src="{{ tariff.image }}" class="tariff-image" alt=""/>
+            </div>
+            <div class="col-6 d-flex flex-md-column gap-md-3">
+                <h1>{{ tariff.name }}</h1>
+                <span>Описание: {{ tariff.description }}</span>
+                <span>RAM: {{ tariff.ram }} гб</span>
+                <span>CPU: {{ tariff.cpu }}</span>
+                <span>SSD: {{ tariff.ssd }} гб</span>
+                <a href="/" class="btn btn-primary my-4 w-25 return-btn">
+                    Домой
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
