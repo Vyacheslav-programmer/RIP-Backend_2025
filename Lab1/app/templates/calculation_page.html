@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+        <h3  class="text-center">Черновой рассчет</h3>
+        <span>RAM {{ calculation.ram }} гб</span>
+        <h4 class="text-center">Тарифы</h4>
+        <div class="cards-wrapper d-flex flex-column">
+            {% for tariff in tariffs %}
+                <div class="card w-100 mb5">
+                     <div class="row g-0">
+                        <div class="col-md-6 d-flex justify-center">
+                            <img src="{{ tariff.image }}" />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ tariff.name }} </h5>
+                                <p class="card-text">RAM {{ tariff.ram }} гб</p>
+                                <div class="form-group">
+                                    <label class="form-label">Количество</label>
+                                    <input disabled class="form-control" style="width: 150px" value="{{ tariff.count }}">
+                                </div>
+                                <a href="/tariffs/{{ tariff.id }}/" class="btn btn-primary" style="width: 100px">
+                                    Открыть
+                                </a>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}

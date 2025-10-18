@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <main class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col md-8">
+                <form class="search-bar" action="/" method="GET">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="Введите название" name="tariff_name" value="{{ tariff_name }}">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary w-100 search-btn">Поиск</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col md-4 justify-end">
+                <a href="/calculations/{{ draft_calculation.id }}/" class="w-25">
+                    <button type="submit" class="bin btn btn-primary position-relative w-100">
+                        Корзина
+                        <div class="badge position-absolute badge rounded-pill">
+                            {{ tariffs_count }}
+                        </div>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="cards-wrapper">
+            {% for tariff in tariffs %}
+                <div class="card">
+                    <img src="{{ tariff.image }}" class="tariff-preview" alt=""/>
+                    <div class="card-body" >
+                        <div class="card-info">
+                            <h5 class="card-title">{{ tariff.name }}</h5>
+                            <p class="card-text">RAM {{ tariff.ram }} гб</p>
+                        </div>
+                        <div class="card-btns">
+                            <a href="/tariffs/{{ tariff.id }}/" class="btn btn-primary center">
+                                Открыть
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}
+
