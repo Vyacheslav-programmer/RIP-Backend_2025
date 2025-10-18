@@ -1,0 +1,581 @@
+{
+	"info": {
+		"_postman_id": "314e2c9f-8cfc-400b-808c-cc6214b66a13",
+		"name": "Lab3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33669280"
+	},
+	"item": [
+		{
+			"name": "домен тарифа",
+			"item": [
+				{
+					"name": "список с фильтрацией",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/tariffs/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tariffs",
+								""
+							],
+							"query": [
+								{
+									"key": "tariff_name",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "одна запись",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/tariffs/1/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tariffs",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавление",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/tariffs/create/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tariffs",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "изменение",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"asdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/tariffs/1/update/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tariffs",
+								"1",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "удаление",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/tariffs/1/delete/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tariffs",
+								"1",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавление в прогноз-черновик",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5NDQxMzk0LCJpYXQiOjE3MjkzNTQ5OTQsInVzZXJfaWQiOjF9.HhYXiblh2Q6usXvkhuJ0wcxm6tndKF4UUpe3ukmKewI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/tariffs/1/add_to_forecastCloudPrice/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tariffs",
+								"1",
+								"add_to_forecastCloudPrice",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавление изображения",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Ярослав/Desktop/sports-car-futuristic-mountain-sunset-scenery-digital-art-2k-wallpaper-uhdpaper.com-537@0@i.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/tariffs/1/update_image/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tariffs",
+								"1",
+								"update_image",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "домен прогноза",
+			"item": [
+				{
+					"name": "иконка корзины",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/cart/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "список",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "mfg0uc3mnlmv2mwthdjznlkw3pjcjh2v",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "одна запись",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/45/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"45",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "изменение полей прогноза",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"days\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/45/update/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"45",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "сформировать создателем",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/45/update_status_user/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"45",
+								"update_status_user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "завершить/отклонить модератором",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/45/update_status_admin/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"45",
+								"update_status_admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "удаление",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/45/delete/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"45",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "домен м-м",
+			"item": [
+				{
+					"name": "удаление из заявки",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/31/delete_tariff/1/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"31",
+								"delete_tariff",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "изменение значения в м-м",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"count\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/forecastCloudPrices/45/update_tariff/1/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"forecastCloudPrices",
+								"45",
+								"update_tariff",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "домен пользователь",
+			"item": [
+				{
+					"name": "регистрация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user12\",\r\n    \"first_name\": \"first_name\",\r\n    \"last_name\": \"last_name\",\r\n    \"email\": \"user11@user.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/register/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "полей пользователя после аутентификации",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "mfg0uc3mnlmv2mwthdjznlkw3pjcjh2v",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/users/info/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"info",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "пользователя (личный кабинет)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user33\",\r\n    \"email\": \"user33@user.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/update/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "аутентификация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/login/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "деавторизация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users/logout/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
