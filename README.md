@@ -18,8 +18,6 @@
 - Postman
 
 ## Запуск:
-\\\ash
 cd Lab3
-docker-compose up --build
-\\\
 
+docker-compose up --build
