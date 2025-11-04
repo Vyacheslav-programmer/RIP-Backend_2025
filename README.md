@@ -19,7 +19,8 @@
 - CORS
 
 ## Запуск:
-`ash
+```bash
 cd Lab4
 docker-compose up --build
+
 
