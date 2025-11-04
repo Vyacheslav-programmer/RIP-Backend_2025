@@ -20,6 +20,7 @@
 - Docker
 
 ## Запуск:
+```bash
 cd Lab2
-
 docker-compose up --build
+
