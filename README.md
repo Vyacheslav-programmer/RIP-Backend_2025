@@ -21,6 +21,7 @@
 ## Запуск:
 
 cd Lab1
+
 docker-compose up --build
 
 
