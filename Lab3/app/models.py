@@ -44,7 +44,7 @@ class Forecastcloudprice(models.Model):
     date_complete = models.DateTimeField(verbose_name="Дата завершения", blank=True, null=True)
 
     owner = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name="Создатель", related_name='owner', null=True)
-    moderator = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name="Модератор", related_name='moderator', blank=True,  null=True)
+    moderator = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name="Оператора", related_name='moderator', blank=True,  null=True)
 
     # Поле пользователя
     days = models.IntegerField(blank=True, null=True)

@@ -3,7 +3,7 @@ psycopg2
 psycopg
 djangorestframework
 Pillow
-minio==7.2.16
+minio
 django-minio-backend
 django-cors-headers
 Faker

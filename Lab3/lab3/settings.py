@@ -122,19 +122,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STORAGES = {
     "default": {
         "BACKEND": "django_minio_backend.models.MinioBackend",
+        "OPTIONS": {
+            "MINIO_ENDPOINT": "minio:9000",
+            "MINIO_ACCESS_KEY": "minio",
+            "MINIO_SECRET_KEY": "minio123",
+            "MINIO_USE_HTTPS": False,
+            "MINIO_EXTERNAL_ENDPOINT": 'localhost:9000',
+            "MINIO_EXTERNAL_ENDPOINT_USE_HTTPS": False,
+            "MINIO_CONSISTENCY_CHECK_ON_START": True,
+            "MINIO_PUBLIC_BUCKETS": ["images"],
+            "MINIO_DEFAULT_BUCKET": "images",
+            "MINIO_MEDIA_FILES_BUCKET": "images",
+            "MINIO_STATIC_FILES_BUCKET": "images"
+        },
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
-
-MINIO_ENDPOINT = 'minio:9000'
-MINIO_USE_HTTPS = False
-MINIO_EXTERNAL_ENDPOINT = 'localhost:9000'
-MINIO_EXTERNAL_ENDPOINT_USE_HTTPS = False
-MINIO_ACCESS_KEY = 'minio'
-MINIO_SECRET_KEY = 'minio123'
-MINIO_PUBLIC_BUCKETS = [
-    'images'
-]
-MINIO_MEDIA_FILES_BUCKET = "images"
